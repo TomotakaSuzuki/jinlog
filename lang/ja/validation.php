@@ -167,7 +167,7 @@ return [
         'area' => 'エリア',
         'available' => '利用可能',
         'birthday' => '誕生日',
-        'body' => '本文',
+        'body' => '内容',
         'city' => '市',
         'content' => 'コンテンツ',
         'country' => '国',
