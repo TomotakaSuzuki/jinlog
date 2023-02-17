@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -41,12 +42,25 @@ class PostController extends Controller
         $inputs = $request->validate([
             'title'=>'required|max:255',
             'body'=>'required|max:1000',
+            'tags'=>'nullable',
         ]);
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
         $post->user_id = auth()->user()->id; //　認証済みログイン中のユーザid
+
+        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->tags, $match);
+        $tags = [];
+        foreach ($match[1] as $tag) {
+            $record = Tag::firstOrCreate(['name' => $tag]);
+            array_push($tags, $record);
+        }
+        $tags_id = [];
+        foreach ($tags as $tag) {
+            array_push($tags_id, $tag['id']);
+        }
         $post->save();
+        $post->tags()->attach($tags_id);
         return redirect()->route('post.create')->with('message', '投稿を作成しました');
     }
 
