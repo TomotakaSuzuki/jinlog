@@ -14,13 +14,26 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label for="title" class="font-semibold leading-none mt-4">件名</label>
-                    <input type="text" name="title" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="title" value="{{old('title', $post->title)}}" placeholder="Enter Title">
+                    <input type="text" name="title" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="title" value="{{old('title', $post->title)}}" placeholder="タイトルを入力してください">
                     </div>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="body" class="font-semibold leading-none mt-4">本文</label>
-                    <textarea name="body" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="body" cols="30" rows="10">{{old('body', $post->body)}}</textarea>
+                    <textarea name="body" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="body" cols="30" rows="10" placeholder='内容を書いてください'>{{old('body', $post->body)}}</textarea>
+                </div>
+
+                <div class="md:flex items-center mt-3">
+                    <div class="w-full flex flex-col">
+                    <label for="title" class="font-semibold leading-none mt-4">タグ</label>
+                    <input type="text" name="tags" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="tags" value="
+                        @if ($post->tags()->exists())
+                        @foreach ($post->tags as $tag)
+                            #{{ $tag->name }}
+                        @endforeach
+                        @endif
+                    " placeholder="例. #登山 #海">
+                    </div>
                 </div>
 
                 <div class="w-full flex flex-col">

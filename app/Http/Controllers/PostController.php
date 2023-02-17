@@ -42,7 +42,7 @@ class PostController extends Controller
         $inputs = $request->validate([
             'title'=>'required|max:255',
             'body'=>'required|max:1000',
-            'tags'=>'nullable',
+            'tags'=>['nullable', 'string'],
         ]);
         $post = new Post();
         $post->title = $request->title;
@@ -98,6 +98,7 @@ class PostController extends Controller
         $inputs=$request->validate([
             'title'=>'required|max:255',
             'body'=>'required|max:1000',
+            'tags'=>['nullable', 'string'],
         ]);
 
         $post->title=$request->title;

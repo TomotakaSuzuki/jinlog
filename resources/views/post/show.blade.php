@@ -35,6 +35,14 @@
                         </div>
                         <img src="{{ asset('storage/images/'.$post->image)}}" class="mx-auto" style="height:300px;">
                     @endif
+                    @if ($post->tags()->exists())
+                        タグ:
+                        @foreach ($post->tags as $tag)
+                            <a href="{{route('post.index', ['name' => $tag->name])}}" class="mt-4 text-blue-600 py-4">
+                                #{{ $tag->name }}
+                            </a>
+                        @endforeach
+                    @endif
                     <div class="text-sm font-semibold flex flex-row-reverse">
                         <p> {{ $post->user->name}} • {{$post->created_at->diffForHumans()}}</p>
                     </div>

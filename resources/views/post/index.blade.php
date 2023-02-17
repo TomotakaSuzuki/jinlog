@@ -22,11 +22,14 @@
 
                             <hr class="w-full">
                             <p class="mt-4 text-gray-600 py-4">{{$post->body}}</p>
-                            @foreach ($post->tags as $tag)
-                                <a href="{{route('post.index', ['name' => $tag->name])}}" class="mt-4 text-blue-600 py-4">
-                                    #{{ $tag->name }}
-                                </a>
-                            @endforeach
+                            @if ($post->tags()->exists())
+                                タグ:
+                                @foreach ($post->tags as $tag)
+                                    <a href="{{route('post.index', ['name' => $tag->name])}}" class="mt-4 text-blue-600 py-4">
+                                        #{{ $tag->name }}
+                                    </a>
+                                @endforeach
+                            @endif
                             <div class="text-sm font-semibold flex flex-row-reverse">
                                 <p>{{ $post->user->name }} • {{$post->created_at->diffForHumans()}}</p>
                             </div>
