@@ -16,9 +16,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        $user = auth()->user();
-        return view('post.index', compact('posts', 'user'));
+        $q = \Request::query();
+        if (isset($q['name'])) {
+            // dd($q['name']);
+            $posts = Post::orderBy('created_at', 'desc')->where('name', $q['name'])->get();
+            $user = auth()->user();
+            return view('post.index', compact('posts', 'user'));
+        } else {
+            $posts = Post::orderBy('created_at', 'desc')->get();
+            $user = auth()->user();
+            return view('post.index', compact('posts', 'user'));
+        }
     }
 
     /**
