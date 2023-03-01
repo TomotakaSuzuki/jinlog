@@ -1,4 +1,10 @@
 <x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <img src="{{asset('logo/building_yasukuni_jinja.png')}}" style="max-height:300px;">
+            </a>
+        </x-slot>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,4 +50,5 @@
             </x-primary-button>
         </div>
     </form>
+    </x-auth-card>
 </x-guest-layout>
