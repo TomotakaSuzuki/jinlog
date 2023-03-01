@@ -16,9 +16,26 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        $user = auth()->user();
-        return view('post.index', compact('posts', 'user'));
+        $q = \Request::query();
+        if (isset($q['name'])) {
+            $posts = Post::orderBy('created_at', 'desc')
+                ->where('body', 'like', "%#{$q['name']}%")
+                ->get();
+            $user = auth()->user();
+            return view('post.index', [
+                'posts' => $posts,
+                'user' => $user,
+                'name' => $q['name'],
+            ]);
+        } else {
+            $posts = Post::orderBy('created_at', 'desc')
+                ->get();
+            $user = auth()->user();
+            return view('post.index', [
+                'posts' => $posts,
+                'user' => $user,
+            ]);
+        }
     }
 
     /**
@@ -49,7 +66,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->user_id = auth()->user()->id; //　認証済みログイン中のユーザid
 
-        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->tags, $match);
+        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->body, $match);
         $tags = [];
         foreach ($match[1] as $tag) {
             $record = Tag::firstOrCreate(['name' => $tag]);
@@ -103,10 +120,20 @@ class PostController extends Controller
 
         $post->title=$request->title;
         $post->body=$request->body;
-                
 
+        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->body, $match);
+        $tags = [];
+        foreach ($match[1] as $tag) {
+            $record = Tag::firstOrCreate(['name' => $tag]);
+            array_push($tags, $record);
+        }
+        $tags_id = [];
+        foreach ($tags as $tag) {
+            array_push($tags_id, $tag['id']);
+        }
 
         $post->save();
+        $post->tags()->attach($tags_id);
 
         return redirect()->route('post.show', $post)->with('message', '投稿を更新しました');
     }

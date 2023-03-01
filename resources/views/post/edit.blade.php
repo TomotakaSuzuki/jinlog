@@ -23,7 +23,7 @@
                     <textarea name="body" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="body" cols="30" rows="10" placeholder='内容を書いてください'>{{old('body', $post->body)}}</textarea>
                 </div>
 
-                <div class="md:flex items-center mt-3">
+                {{-- <div class="md:flex items-center mt-3">
                     <div class="w-full flex flex-col">
                     <label for="title" class="font-semibold leading-none mt-4">タグ</label>
                     <input type="text" name="tags" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="tags" value="
@@ -34,7 +34,7 @@
                         @endif
                     " placeholder="例. #登山 #海">
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="w-full flex flex-col">
                     @if($post->image)
