@@ -20,7 +20,7 @@ class PostController extends Controller
         if (isset($q['name'])) {
             $posts = Post::orderBy('created_at', 'desc')
                 ->where('body', 'like', "%#{$q['name']}%")
-                ->get();
+                ->paginate(5);
             $user = auth()->user();
             return view('post.index', [
                 'posts' => $posts,
@@ -29,7 +29,7 @@ class PostController extends Controller
             ]);
         } else {
             $posts = Post::orderBy('created_at', 'desc')
-                ->get();
+                ->paginate(5);
             $user = auth()->user();
             return view('post.index', [
                 'posts' => $posts,
