@@ -133,7 +133,7 @@ class PostController extends Controller
         }
 
         $post->save();
-        $post->tags()->attach($tags_id);
+        $post->tags()->syncWithoutDetaching($tags_id);
 
         return redirect()->route('post.show', $post)->with('message', '投稿を更新しました');
     }
@@ -150,3 +150,4 @@ class PostController extends Controller
         return redirect()->route('post.index')->with('message', '投稿を削除しました');
     }
 }
+?>
