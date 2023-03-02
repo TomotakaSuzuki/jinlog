@@ -133,7 +133,8 @@ class PostController extends Controller
         }
 
         $post->save();
-        $post->tags()->syncWithoutDetaching($tags_id);
+        // $post->tags()->syncWithoutDetaching($tags_id);
+        $post->tags()->sync($tags_id);
 
         return redirect()->route('post.show', $post)->with('message', '投稿を更新しました');
     }
