@@ -66,7 +66,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->user_id = auth()->user()->id; //　認証済みログイン中のユーザid
 
-        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->body, $match);
+        preg_match_all('/#([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->body, $match);
         $tags = [];
         foreach ($match[1] as $tag) {
             $record = Tag::firstOrCreate(['name' => $tag]);
@@ -121,7 +121,7 @@ class PostController extends Controller
         $post->title=$request->title;
         $post->body=$request->body;
 
-        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->body, $match);
+        preg_match_all('/#([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->body, $match);
         $tags = [];
         foreach ($match[1] as $tag) {
             $record = Tag::firstOrCreate(['name' => $tag]);
