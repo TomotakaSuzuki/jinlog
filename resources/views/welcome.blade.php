@@ -3,13 +3,9 @@
         <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center bg-yellow-50">
             <!--左側-->
             <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
-                <h1 class="my-4 text-3xl md:text-5xl text-green-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">卒業制作に向けて</h1>
+                <h1 class="my-4 text-3xl md:text-5xl text-green-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">ログ</h1>
                 <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">
-                    このプロジェクトを、C(create)、R(read)、U(update)、D(delete)に分解して、ご自分のプロジェクト作成に活用して下さい。皆様の御成功を祈念しております。
-                </p>
-            
-                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center md:text-left fade-in">
-                    質問大歓迎！！お気軽どうぞ＼(^o^)／
+                    日本全国の神社への訪問の活動記録を共有しよう！
                 </p>
                 <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in ">
                     <x-primary-button class="mr-4 bg-gray-600 font-bold text-base">お問い合わせ</x-primary-button>
@@ -22,12 +18,9 @@
             </div>
         </div>
         <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-            <div class="w-full text-sm text-center md:text-left fade-in border-2 p-4 text-red-800 leading-8 mb-8">
-                <P> 頑張ろう！！ 卒業制作！！！</p>
-            </div>
             <!--フッタ-->
             <div class="w-full pt-10 pb-6 text-sm md:text-left fade-in">
-                <p class="text-gray-500 text-center">@2022 CCA卒業制作実行委員会</p>
+                <p class="text-gray-500 text-center">@2022 tomotakasuzuki</p>
             </div>
         </div>
     </div>
