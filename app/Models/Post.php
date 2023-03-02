@@ -13,6 +13,9 @@ class Post extends Model
         'title',
         'body',
         'user_id',
+        'image1',
+        'image2',
+        'image3',
     ];
 
 
