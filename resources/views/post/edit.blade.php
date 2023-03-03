@@ -47,6 +47,7 @@
                     <div>
                     <input id="image1" type="file" name="image1">
                     </div>
+
                     @if($post->image2)
                     <div>
                         (画像ファイル：{{$post->image2}})
@@ -55,8 +56,9 @@
                     @endif
                     <label for="image2" class="font-semibold leading-none mt-4">画像(1MBまで)</label>
                     <div>
-                    <input id="image2" type="file" name="image2">
+                        <input id="image2" type="file" name="image2">
                     </div>
+
                     @if($post->image3)
                     <div>
                         (画像ファイル：{{$post->image3}})

@@ -84,7 +84,7 @@ class PostController extends Controller
             $original = request()->file('image3')->getClientOriginalName();
             $name = date('Ymd_His').'_'.$original;
             request()->file('image3')->move('storage/images', $name);
-            $post->image2 = $name;
+            $post->image3 = $name;
         }
 
         preg_match_all('/#([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->body, $match);
@@ -136,11 +136,33 @@ class PostController extends Controller
         $inputs=$request->validate([
             'title'=>'required|max:255',
             'body'=>'required|max:1000',
+            'image1'=>'image|max:1024',
+            'image2'=>'image|max:1024',
+            'image3'=>'image|max:1024',
             'tags'=>['nullable', 'string'],
         ]);
 
         $post->title=$request->title;
         $post->body=$request->body;
+
+        if (request('image1')){
+            $original = request()->file('image1')->getClientOriginalName();
+            $name = date('Ymd_His').'_'.$original;
+            request()->file('image1')->move('storage/images', $name);
+            $post->image1 = $name;
+        }
+        if (request('image2')){
+            $original = request()->file('image2')->getClientOriginalName();
+            $name = date('Ymd_His').'_'.$original;
+            request()->file('image2')->move('storage/images', $name);
+            $post->image2 = $name;
+        }
+        if (request('image3')){
+            $original = request()->file('image3')->getClientOriginalName();
+            $name = date('Ymd_His').'_'.$original;
+            request()->file('image3')->move('storage/images', $name);
+            $post->image3 = $name;
+        }
 
         preg_match_all('/#([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->body, $match);
         $tags = [];
