@@ -30,9 +30,17 @@
                 </div> --}}
 
                 <div class="w-full flex flex-col">
-                    <label for="image" class="font-semibold leading-none mt-4">画像 </label>
+                    <label for="image1" class="font-semibold leading-none mt-4">画像 （1MBまで）</label>
                     <div>
-                    <input id="image" type="file" name="image">
+                    <input id="image1" type="file" name="image1">
+                    </div>
+                    <label for="image2" class="font-semibold leading-none mt-4">画像 （1MBまで）</label>
+                    <div>
+                    <input id="image2" type="file" name="image2">
+                    </div>
+                    <label for="image3" class="font-semibold leading-none mt-4">画像 （1MBまで）</label>
+                    <div>
+                    <input id="image3" type="file" name="image3">
                     </div>
                 </div>
 

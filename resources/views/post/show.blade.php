@@ -29,11 +29,23 @@
                 </div>
                 <div>
                     <p class="mt-4 text-gray-600 py-4">{{$post->body}}</p>
-                    @if($post->image)
+                    @if($post->image1)
                         <div>
-                            (画像ファイル：{{$post->image}})
+                            (画像ファイル：{{$post->image1}})
                         </div>
-                        <img src="{{ asset('storage/images/'.$post->image)}}" class="mx-auto" style="height:300px;">
+                        <img src="{{ asset('storage/images/'.$post->image1)}}" class="mx-auto" style="height:300px;">
+                    @endif
+                    @if($post->image2)
+                        <div>
+                            (画像ファイル：{{$post->image2}})
+                        </div>
+                        <img src="{{ asset('storage/images/'.$post->image2)}}" class="mx-auto" style="height:300px;">
+                    @endif
+                    @if($post->image3)
+                        <div>
+                            (画像ファイル：{{$post->image3}})
+                        </div>
+                        <img src="{{ asset('storage/images/'.$post->image3)}}" class="mx-auto" style="height:300px;">
                     @endif
                     @if ($post->tags()->exists())
                         タグ:

@@ -37,15 +37,37 @@
                 </div> --}}
 
                 <div class="w-full flex flex-col">
-                    @if($post->image)
+                    @if($post->image1)
                     <div>
-                        (画像ファイル：{{$post->image}})
+                        (画像ファイル：{{$post->image1}})
                     </div>
-                    <img src="{{ asset('storage/images/'.$post->image)}}" class="mx-auto" style="height:300px;">
+                    <img src="{{ asset('storage/images/'.$post->image1)}}" class="mx-auto" style="height:300px;">
                     @endif
-                    <label for="image" class="font-semibold leading-none mt-4">画像(1MBまで)</label>
+                    <label for="image1" class="font-semibold leading-none mt-4">画像(1MBまで)</label>
                     <div>
-                    <input id="image" type="file" name="image">
+                    <input id="image1" type="file" name="image1">
+                    </div>
+
+                    @if($post->image2)
+                    <div>
+                        (画像ファイル：{{$post->image2}})
+                    </div>
+                    <img src="{{ asset('storage/images/'.$post->image2)}}" class="mx-auto" style="height:300px;">
+                    @endif
+                    <label for="image2" class="font-semibold leading-none mt-4">画像(1MBまで)</label>
+                    <div>
+                        <input id="image2" type="file" name="image2">
+                    </div>
+
+                    @if($post->image3)
+                    <div>
+                        (画像ファイル：{{$post->image3}})
+                    </div>
+                    <img src="{{ asset('storage/images/'.$post->image3)}}" class="mx-auto" style="height:300px;">
+                    @endif
+                    <label for="image3" class="font-semibold leading-none mt-4">画像(1MBまで)</label>
+                    <div>
+                    <input id="image3" type="file" name="image3">
                     </div>
                 </div>
 
