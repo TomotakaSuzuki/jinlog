@@ -50,7 +50,7 @@
             </div>
         @endforeach
         <div>
-            {{ $posts->links() }}
+            {{ $posts->appends(request()->query())->links() }}
         </div>
     </div>
 </x-app-layout>
