@@ -12,6 +12,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="stylesheet" href="{{ asset('css/forum.css') }}">
     </head>
     <body class="font-sans antialiased overflow-y-scroll">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
