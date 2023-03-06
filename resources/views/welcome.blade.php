@@ -3,7 +3,7 @@
         <div class="container pt-10 md:pt-18 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center bg-yellow-50">
             <!--左側-->
             <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden ">
-                <h1 class="my-4 text-3xl md:text-5xl text-green-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">ログ</h1>
+                <h1 class="my-4 text-3xl md:text-5xl text-green-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">JINLOG</h1>
                 <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">
                     日本全国の神社への訪問の活動記録を共有しよう！
                 </p>
