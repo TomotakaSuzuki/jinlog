@@ -98,7 +98,7 @@ class PostController extends Controller
             array_push($tags_id, $tag['id']);
         }
         $post->save();
-        $post->tags()->attach($tags_id);
+        $post->tags()->syncWithoutDetaching($tags_id);
         return redirect()->route('post.create')->with('message', '投稿を作成しました');
     }
 
