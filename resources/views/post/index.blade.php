@@ -10,9 +10,9 @@
 
     {{-- 投稿一覧表示用のコード --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {{$user->name}} でログイン中
+        <p class="text-lg text-gray-700 font-semibold cursor-pointer">{{$user->name}} でログイン中</p>
         @if (isset($name))
-            タグ: #{{$name}} のついている投稿
+            <p class="text-lg text-gray-700 font-semibold cursor-pointer">タグ: #{{$name}} のついている投稿</p>
         @endif
         @foreach ($posts as $post)
             <div class="mx-4 sm:p-8">
